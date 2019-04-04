@@ -1,0 +1,25 @@
+{
+  "name": "@ruiyun/fastify-service-loader",
+  "version": "0.2.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fastify",
+    "plugin"
+  ],
+  "author": "wen911119@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "fastify-plugin": "^1.5.0",
+    "globby": "^9.2.0"
+  },
+  "peerDependencies": {
+    "fastify": "^2.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
