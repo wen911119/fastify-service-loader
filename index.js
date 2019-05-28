@@ -1,5 +1,6 @@
 const globby = require('globby')
 const fp = require('fastify-plugin')
+const Bounce = require('@hapi/bounce')
 
 module.exports = fp(async (fastify, options, next) => {
   const { path: serviceDirectory } = options
@@ -23,9 +24,11 @@ module.exports = fp(async (fastify, options, next) => {
             data: ret
           }
         } catch (err) {
+          // 对于系统错误应该重新抛出返回500，并被错误日志记录下来
+          Bounce.rethrow(err, 'system')
           return {
             success: false,
-            errMsg: err
+            errMsg: err && err.message
           }
         }
       }
